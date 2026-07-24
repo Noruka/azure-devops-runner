@@ -1,6 +1,12 @@
-FROM ubuntu:22.04
+FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates git jq bash libicu-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates git jq bash unzip && rm -rf /var/lib/apt/lists/*
+
+# Blazor WASM tools
+RUN dotnet workload install wasm-tools
+
+# Azure CLI para publish/deploy
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 WORKDIR /azp
 COPY start.sh .

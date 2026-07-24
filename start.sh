@@ -15,17 +15,21 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
-AGENT_VERSION=$(curl -fsSL https://api.github.com/repos/microsoft/azure-pipelines-agent/releases/latest | jq -r '.tag_name' | sed 's/^v//')
+# Obtiene URL oficial del paquete (firmada) desde Azure DevOps
+AGENT_PACKAGE_URL=$(curl -fsSL \
+  -u "user:$(cat /azp/.token)" \
+  -H "Accept: application/json" \
+  "${AZP_URL}/_apis/distributedtask/packages/agent?platform=linux-x64&%24top=1" \
+  | jq -r '.value[0].downloadUrl')
 
-PKG="vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz"
-URL1="https://download.agent.dev.azure.com/agent/${AGENT_VERSION}/${PKG}"
-URL2="https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/${PKG}"
+if [ -z "${AGENT_PACKAGE_URL}" ] || [ "${AGENT_PACKAGE_URL}" = "null" ]; then
+  echo "Could not resolve agent package URL from Azure DevOps API"
+  exit 1
+fi
 
-curl -fL --retry 5 --retry-delay 3 -o "/azp/${PKG}" "$URL1" || \
-curl -fL --retry 5 --retry-delay 3 -o "/azp/${PKG}" "$URL2"
-
-tar -xzf "/azp/${PKG}" -C /azp
-rm -f "/azp/${PKG}"
+curl -fL --retry 5 --retry-delay 3 -o /azp/agent.tar.gz "$AGENT_PACKAGE_URL"
+tar -xzf /azp/agent.tar.gz -C /azp
+rm -f /azp/agent.tar.gz
 
 /azp/bin/installdependencies.sh
 

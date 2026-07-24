@@ -7,7 +7,7 @@ services:
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
       AZP_AGENT_NAME: office-runner-1
-      AZP_WORK: _work
+      AZP_WORK: /azp/_work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
       - 1.1.1.1
@@ -19,6 +19,7 @@ services:
       retries: 3
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /azp/_work:/azp/_work
 
   azdo-runner-2:
     build: .
@@ -28,7 +29,7 @@ services:
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
       AZP_AGENT_NAME: office-runner-2
-      AZP_WORK: _work
+      AZP_WORK: /azp/_work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
       - 1.1.1.1
@@ -40,3 +41,4 @@ services:
       retries: 3
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /azp/_work:/azp/_work

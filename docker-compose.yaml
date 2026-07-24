@@ -115,3 +115,16 @@ services:
       AZP_AGENT_NAME: office-runner-9
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+
+  azdo-runner-10:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      AZP_URL: ${AZP_URL}
+      AZP_TOKEN: ${AZP_TOKEN}
+      AZP_POOL: ${AZP_POOL}
+      AZP_AGENT_NAME: office-runner-10
+      AZP_WORK: _work
+      AGENT_ALLOW_RUNASROOT: "1"

@@ -1,5 +1,5 @@
 services:
-  azdo-runner-1:
+  azdo-runner-3:
     build:
       context: .
       dockerfile: Dockerfile
@@ -8,14 +8,14 @@ services:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-1
+      AZP_AGENT_NAME: office-runner-3
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
       - 1.1.1.1
       - 8.8.8.8
 
-  azdo-runner-2:
+  azdo-runner-4:
     build:
       context: .
       dockerfile: Dockerfile
@@ -24,7 +24,7 @@ services:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-2
+      AZP_AGENT_NAME: office-runner-4
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:

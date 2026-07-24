@@ -1,0 +1,26 @@
+services:
+  azdo-runner-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      AZP_URL: ${AZP_URL}
+      AZP_TOKEN: ${AZP_TOKEN}
+      AZP_POOL: ${AZP_POOL}
+      AZP_AGENT_NAME: office-runner-1
+      AZP_WORK: _work
+      AGENT_ALLOW_RUNASROOT: "1"
+
+  azdo-runner-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      AZP_URL: ${AZP_URL}
+      AZP_TOKEN: ${AZP_TOKEN}
+      AZP_POOL: ${AZP_POOL}
+      AZP_AGENT_NAME: office-runner-2
+      AZP_WORK: _work
+      AGENT_ALLOW_RUNASROOT: "1"

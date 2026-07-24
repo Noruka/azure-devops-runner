@@ -11,6 +11,9 @@ services:
       AZP_AGENT_NAME: office-runner-1
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-2:
     build:
@@ -24,6 +27,9 @@ services:
       AZP_AGENT_NAME: office-runner-2
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-3:
     build:
@@ -37,6 +43,9 @@ services:
       AZP_AGENT_NAME: office-runner-3
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-4:
     build:
@@ -50,6 +59,9 @@ services:
       AZP_AGENT_NAME: office-runner-4
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-5:
     build:
@@ -63,6 +75,9 @@ services:
       AZP_AGENT_NAME: office-runner-5
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-6:
     build:
@@ -76,6 +91,9 @@ services:
       AZP_AGENT_NAME: office-runner-6
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-7:
     build:
@@ -89,6 +107,9 @@ services:
       AZP_AGENT_NAME: office-runner-7
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-8:
     build:
@@ -102,6 +123,9 @@ services:
       AZP_AGENT_NAME: office-runner-8
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-9:
     build:
@@ -115,6 +139,9 @@ services:
       AZP_AGENT_NAME: office-runner-9
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
 
   azdo-runner-10:
     build:
@@ -128,3 +155,6 @@ services:
       AZP_AGENT_NAME: office-runner-10
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8

@@ -14,6 +14,11 @@ services:
     dns:
       - 1.1.1.1
       - 8.8.8.8
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f Agent.Listener >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   azdo-runner-4:
     build:
@@ -30,3 +35,8 @@ services:
     dns:
       - 1.1.1.1
       - 8.8.8.8
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f Agent.Listener >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

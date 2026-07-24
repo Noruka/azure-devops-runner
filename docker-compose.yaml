@@ -1,14 +1,12 @@
 services:
-  azdo-runner-3:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  azdo-runner-1:
+    build: .
     restart: unless-stopped
     environment:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-3
+      AZP_AGENT_NAME: office-runner-1
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
@@ -19,17 +17,17 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
-  azdo-runner-4:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  azdo-runner-2:
+    build: .
     restart: unless-stopped
     environment:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-4
+      AZP_AGENT_NAME: office-runner-2
       AZP_WORK: _work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
@@ -40,3 +38,5 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

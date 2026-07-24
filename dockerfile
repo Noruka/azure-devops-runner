@@ -1,12 +1,14 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM ubuntu:22.04
 
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates git jq bash unzip && rm -rf /var/lib/apt/lists/*
-
-# Blazor WASM tools
-RUN dotnet workload install wasm-tools
-
-# Azure CLI para publish/deploy
-RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl ca-certificates git jq bash lsb-release gnupg && \
+    install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
+    chmod a+r /etc/apt/keyrings/docker.asc && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu jammy stable" \
+    > /etc/apt/sources.list.d/docker.list && \
+    apt-get update && apt-get install -y --no-install-recommends docker-ce-cli && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /azp
 COPY start.sh .

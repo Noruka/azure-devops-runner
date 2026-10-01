@@ -20,6 +20,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /azp/runner1/_work:/azp/_work
+      - /azp/runner1/cache/nuget:/root/.nuget
+      - /azp/runner1/cache/npm:/root/.npm
+      - /azp/runner1/cache/local:/root/.local
 
   azdo-runner-2:
     build: .
@@ -42,6 +45,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /azp/runner2/_work:/azp/_work
+      - /azp/runner2/cache/nuget:/root/.nuget
+      - /azp/runner2/cache/npm:/root/.npm
+      - /azp/runner2/cache/local:/root/.local
 
   azdo-runner-3:
     build: .
@@ -64,6 +70,9 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /azp/runner3/_work:/azp/_work
+      - /azp/runner3/cache/nuget:/root/.nuget
+      - /azp/runner3/cache/npm:/root/.npm
+      - /azp/runner3/cache/local:/root/.local
 
   azdo-runner-4:
     build: .
@@ -86,3 +95,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /azp/runner4/_work:/azp/_work
+      - /azp/runner4/cache/nuget:/root/.nuget
+      - /azp/runner4/cache/npm:/root/.npm
+      - /azp/runner4/cache/local:/root/.local

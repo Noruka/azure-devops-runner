@@ -6,7 +6,7 @@ services:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-1
+      AZP_AGENT_NAME: office-runner-10
       AZP_WORK: /azp/_work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
@@ -31,7 +31,7 @@ services:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-2
+      AZP_AGENT_NAME: office-runner-20
       AZP_WORK: /azp/_work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
@@ -56,7 +56,7 @@ services:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-3
+      AZP_AGENT_NAME: office-runner-30
       AZP_WORK: /azp/_work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
@@ -81,7 +81,7 @@ services:
       AZP_URL: ${AZP_URL}
       AZP_TOKEN: ${AZP_TOKEN}
       AZP_POOL: ${AZP_POOL}
-      AZP_AGENT_NAME: office-runner-4
+      AZP_AGENT_NAME: office-runner-40
       AZP_WORK: /azp/_work
       AGENT_ALLOW_RUNASROOT: "1"
     dns:
